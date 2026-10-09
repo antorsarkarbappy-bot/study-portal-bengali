@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আমার স্টাডি পোর্টাল | শিখি ও শেখাই</title>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --primary-color: #007bFF;
+            --header-grade: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #ffffff;
+            --primary-color: #378dfc;
+            --header-grade: linear-gradient(135deg, #0f2027, #203a43);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background: var(--header-grade);
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 20px;
+            border: 1px solid #fff;
+            background: transparent;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-bookmark {
+            background: #ffc107;
+            color: #000;
+            margin-left: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button class="theme-toggle" onclick="toggleTheme()">থিম পরিবর্তন</button>
+        <h1>এসো নিজে শিখি</h1>
+        <p>এইচএসসি ও এডমিশন পরীক্ষার্থীদের জন্য একটি সম্পূর্ণ ফ্রি প্ল্যাটফর্ম</p>
+    </header>
+
+    <div class="container">
+        <h2>📚 আজকের লেকচার শিট ও নোট</h2>
+        
+        <div class="grid">
+            <!-- বিষয় ১ -->
+            <div class="card">
+                <h3>পদার্থবিজ্ঞান: ভেক্টর</h3>
+                <p style="margin-top:10px; color:#777;">ভেক্টর গুণন, ডট গুণন ও ক্রস গুণনের সহজ ব্যাখ্যা এবং গাণিতিক সমাধান।</p>
+                <button class="btn">পিডিএফ ডাউনলোড</button>
+                <button class="btn btn-bookmark" onclick="bookmarkItem('ভেক্টর নোট')">বুকমার্ক</button>
+            </div>
+
+            <!-- বিষয় ২ -->
+            <div class="card">
+                <h3>রসায়ন: গুণগত রসায়ন</h3>
+                <p style="margin-top:10px; color:#777;">কোয়ান্টাম সংখ্যা এবং অরবিটালে ইলেকট্রন প্রবেশের নিয়মাবলীর শর্টকাট টেকনিক।</p>
+                <button class="btn">পিডিএফ ডাউনলোড</button>
+                <button class="btn btn-bookmark" onclick="bookmarkItem('গুণগত রসায়ন')">বুকমার্ক</button>
+            </div>
+
+            <!-- বিষয় ৩ -->
+            <div class="card">
+                <h3>উচ্চতর গণিত: ম্যাট্রিক্স</h3>
+                <p style="margin-top:10px; color:#777;">ক্রেমারের নিয়ম ও বিপরীত ম্যাট্রিক্স নির্ণয়ের সহজ ট্রিকস ও প্র্যাকটিস শিট।</p>
+                <button class="btn">পিডিএফ ডাউনলোড</button>
+                <button class="btn btn-bookmark" onclick="bookmarkItem('ম্যাট্রিক্স নোট')">বুকমার্ক</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 আমার স্টাডি পোর্টাল। লার্নিং হোক ���নন্দময়।</p>
+    </footer>
+
+    <script>
+        // ডার্ক মোড লজিক
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        }
+
+        // বুকমার্ক লজিক
+        function bookmarkItem(itemName) {
+            alert('"' + itemName + '" আপনার প্রিয় তালিকায় যুক্ত হয়েছে!');
+        }
+    </script>
+</body>
+</html>
